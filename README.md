@@ -10,3 +10,11 @@ pip3 install rasa==2.8
 ```
 pip install SpeechRecognition
 ```
+- ivy-python
+```
+pip install ivy-python
+```
+- pygame
+```
+pip install pygame
+```
