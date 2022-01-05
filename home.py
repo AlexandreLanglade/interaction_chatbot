@@ -27,7 +27,8 @@ class Maison(IvyServer):
         - MAISON device=temperature action=x : règle la température du radiateur à x°C
         - MAISON device=maman action=message : ajoute un message sur le tel de maman
         - MAISON device=papa action=message : ajoute un message sur le tel de papa
-        - MAISON device=liste action=x : ajoute l'item x à la liste des courses
+        - MAISON device=liste action=x : renseigner la liste des courses 
+                                         x=3,banane 2,lait
         """
         if device == "salon":
             if action == "on":
@@ -64,8 +65,16 @@ class Maison(IvyServer):
             self.tel_papa += 1
             return
         elif device == "liste":
-            self.liste_courses.append(action)
+            self.liste_courses = []
+            if action == "":
+                return
+            items = action.split(" ")
+            for item in items:
+                if len(self.liste_courses) == 6:
+                    break
+                self.liste_courses.append(item)
             return
+        print("-------- OUPS --------")
         print("Le message est incorrect et n'a pas été traité : ", device, action)
 
 
@@ -88,6 +97,13 @@ if __name__ == "__main__":
 
     # ecriture température du radiateur
     font = pygame.font.SysFont("comicsansms", 14)
+
+    # notifications téléphone
+    notification = pygame.image.load("img/notification_message.png")
+    font_notif = pygame.font.SysFont("comicsansms", 11)
+
+    # liste des courses
+    font_courses = pygame.font.SysFont("comicsansms", 5)
 
     while True:
         for event in pygame.event.get():
@@ -121,14 +137,25 @@ if __name__ == "__main__":
 
         if maison.tel_maman != 0:
             #notif maman gauche
-            pass
+            screen.blit(notification,(555,266))
+            pygame.draw.circle(screen,(255,0,0),(586,300),10)
+            notif_affichage = font.render(str(maison.tel_maman), True, (0,0,0))
+            screen.blit(notif_affichage,(580,288))
+            
         if maison.tel_papa != 0:
-            #notif maman gauche
-            pass
+            #notif papa droite
+            screen.blit(notification,(654,266))
+            pygame.draw.circle(screen,(255,0,0),(685,300),10)
+            notif_affichage = font.render(str(maison.tel_papa), True, (0,0,0))
+            screen.blit(notif_affichage,(679,288))
 
         if len(maison.liste_courses) > 0:
             #afficher liste course
-            pass
+            incrementation = 0
+            for item in maison.liste_courses:
+                item_affichage = font.render(item.replace(","," "), True, (0,0,0))
+                screen.blit(item_affichage,(531,469+incrementation))
+                incrementation += 13
 
         pygame.display.update()
         fps_clock.tick(30)
