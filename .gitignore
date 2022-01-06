@@ -1,2 +1,4 @@
 .venv
 vision.py
+__pycache__
+.vscode

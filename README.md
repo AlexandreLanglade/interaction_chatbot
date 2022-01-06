@@ -18,3 +18,7 @@ pip install ivy-python
 ```
 pip install pygame
 ```
+- python text to speech
+```
+pip install pyttsx3
+```
