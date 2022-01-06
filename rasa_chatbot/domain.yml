@@ -1,26 +1,16 @@
 version: '2.0'
-config:
-  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- action_maison:
-    use_entities: true
-- greet:
-    use_entities: true
-- goodbye:
-    use_entities: true
-- affirm:
-    use_entities: true
-- deny:
-    use_entities: true
-- mood_great:
-    use_entities: true
-- mood_unhappy:
-    use_entities: true
-- bot_challenge:
-    use_entities: true
+- action_maison
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
 entities:
 - action_maison
 - chauffage
@@ -29,30 +19,22 @@ entities:
 - temperature
 slots:
   action_maison:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   chauffage:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   lumiere:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   piece:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   temperature:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: float
     influence_conversation: false
+    max_value: 30.0
+    min_value: 0.0
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -69,5 +51,3 @@ responses:
   - text: I am a bot, powered by Rasa.
 actions:
 - utter_greet
-forms: {}
-e2e_actions: []
