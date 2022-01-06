@@ -95,16 +95,22 @@ nlu:
     - [allum](action_maison)[allumer](action_maison) le radiateur du [salon](piece) à [26](temperature) degrés
     - [allum](action_maison)[allumer](action_maison) le [radiateur]{"entity": "chauffage", "value": "chauffage"} de la [chambre](piece) a [25](temperature) degrés
     - [etteins](action_maison) la [lumiere]{"entity": "lumiere", "value": "lumi\u00e8re"} de la [chambre](piece)
+    - [allum](action_maison)[allumer](action_maison) le [chauffage](chauffage) à [24](temperature) degrés
+    - [allum](action_maison)[allumes](action_maison) le [radiateur]{"entity": "chauffage", "value": "chauffage"} de la [chambre](piece) à [45](temperature) degrés
+    - [régl](action_maison)es la température à [25](temperature) degrés
+    - [met](action_maison)s la température à [18](temperature)
 - synonym: lumière
   examples: |
     - ampoule
-    - lampe
     - lumiere
+    - lampe
 - synonym: chauffage
   examples: |
-    - chauffage
     - radiateur
+    - chauffage
 - regex: action_maison
   examples: |
     - ^allum
     - ^etein
+    - ^met
+    - ^régl
