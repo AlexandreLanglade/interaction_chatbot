@@ -1,0 +1,205 @@
+version: "2.0"
+stories:
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+- story: action lumiere
+  steps:
+  - intent: action_maison
+    entities:
+    - lumiere: "ampoule"
+    - piece: "salon"
+  - slot_was_set:
+    - lumiere: "ampoule"
+  - slot_was_set:
+    - piece: "salon"
+- story: action chauffage
+  steps:
+  - intent: action_maison
+    entities:
+    - chauffage: "chauffage"
+    - piece: "salon"
+    - temperature: "25"
+  - slot_was_set:
+    - chauffage: "chauffage"
+  - slot_was_set:
+    - piece: "salon"
+  - slot_was_set:
+    - temperature: "25"
+- story: interactive_story_1
+  steps:
+  - intent: action_maison
+    entities:
+    - action_maison: allum
+    - temperature: '2'
+    - action_maison: allumer
+    - piece: salon
+  - slot_was_set:
+    - action_maison: allumer
+  - slot_was_set:
+    - piece: salon
+  - slot_was_set:
+    - temperature: '2'
+
+- story: interactive_story_1
+  steps:
+  - intent: action_maison
+    entities:
+    - action_maison: allum
+    - action_maison: allumer
+    - lumiere: lumière
+    - piece: salon
+  - slot_was_set:
+    - action_maison: allumer
+  - slot_was_set:
+    - lumiere: lumière
+  - slot_was_set:
+    - piece: salon
+  - intent: action_maison
+    entities:
+    - action_maison: allum
+    - temperature: '2'
+    - action_maison: allumer
+    - chauffage: chauffage
+    - piece: salon
+    - temperature: '25'
+  - slot_was_set:
+    - action_maison: allumer
+  - slot_was_set:
+    - chauffage: chauffage
+  - slot_was_set:
+    - piece: salon
+  - slot_was_set:
+    - temperature: '25'
+  - intent: action_maison
+    entities:
+    - action_maison: allum
+    - action_maison: allumer
+    - piece: maison
+  - slot_was_set:
+    - action_maison: allumer
+  - slot_was_set:
+    - piece: maison
+
+- story: interactive_story_1
+  steps:
+  - intent: action_maison
+    entities:
+    - action_maison: allum
+    - action_maison: allumes
+    - lumiere: lumière
+    - piece: chambre
+  - slot_was_set:
+    - action_maison: allumes
+  - slot_was_set:
+    - lumiere: lumière
+  - slot_was_set:
+    - piece: chambre
+  - intent: action_maison
+    entities:
+    - action_maison: allum
+    - action_maison: allumer
+    - piece: salon
+    - temperature: '26'
+  - slot_was_set:
+    - action_maison: allumer
+  - slot_was_set:
+    - piece: salon
+  - slot_was_set:
+    - temperature: '26'
+
+- story: interactive_story_1
+  steps:
+  - intent: action_maison
+    entities:
+    - action_maison: allum
+    - action_maison: allumer
+    - chauffage: chauffage
+    - piece: chambre
+    - temperature: '25'
+  - slot_was_set:
+    - action_maison: allumer
+  - slot_was_set:
+    - chauffage: chauffage
+  - slot_was_set:
+    - piece: chambre
+  - slot_was_set:
+    - temperature: '25'
+  - intent: action_maison
+    entities:
+    - action_maison: etteins
+    - lumiere: lumière
+    - piece: chambre
+  - slot_was_set:
+    - action_maison: etteins
+  - slot_was_set:
+    - lumiere: lumière
+  - slot_was_set:
+    - piece: chambre
+
+- story: interactive_story_1
+  steps:
+  - intent: action_maison
+    entities:
+    - action_maison: allum
+    - action_maison: allumer
+    - chauffage: chauffage
+    - temperature: '24'
+  - slot_was_set:
+    - action_maison: allumer
+  - slot_was_set:
+    - chauffage: chauffage
+  - slot_was_set:
+    - temperature: '24'
+  - intent: action_maison
+    entities:
+    - action_maison: allum
+    - action_maison: allumes
+    - chauffage: chauffage
+    - piece: chambre
+    - temperature: '45'
+  - slot_was_set:
+    - action_maison: allumes
+  - slot_was_set:
+    - chauffage: chauffage
+  - slot_was_set:
+    - piece: chambre
+  - slot_was_set:
+    - temperature: '45'
+  - intent: action_maison
+    entities:
+    - action_maison: régl
+    - temperature: '25'
+  - slot_was_set:
+    - action_maison: régl
+  - slot_was_set:
+    - temperature: '25'
+  - intent: action_maison
+    entities:
+    - action_maison: met
+    - temperature: '18'
+  - slot_was_set:
+    - action_maison: met
+  - slot_was_set:
+    - temperature: '18'

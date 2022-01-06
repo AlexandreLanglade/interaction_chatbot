@@ -1,0 +1,116 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: action_maison
+  examples: |
+    - [allumes](action_maison) l'[ampoule](lumiere) de la [chambre](piece)
+    - [allumage](action_maison) de la [lumière](lumiere) du [salon](piece)
+    - [eteins](action_maison) la [lampe](lumiere) de la [chambre](piece)
+    - [allume ](action_maison)le [radiateur](chauffage) dans la [chambre](piece)
+    - [allumes](action_maison) la [maison](piece)
+    - [allumer](action_maison) le [chauffage](chauffage) de la [chambre](piece) à [20](temperature) degrés
+    - [allum](action_maison)[allumes](action_maison) l'[ampoule]{"entity": "lumiere", "value": "lumi\u00e8re"} de la [chambre](piece)
+    - [allum](action_maison)[allumer](action_maison) le radiateur du [salon](piece) à [26](temperature) degrés
+    - [allum](action_maison)[allumer](action_maison) le [radiateur]{"entity": "chauffage", "value": "chauffage"} de la [chambre](piece) a [25](temperature) degrés
+    - [etteins](action_maison) la [lumiere]{"entity": "lumiere", "value": "lumi\u00e8re"} de la [chambre](piece)
+    - [allum](action_maison)[allumer](action_maison) le [chauffage](chauffage) à [24](temperature) degrés
+    - [allum](action_maison)[allumes](action_maison) le [radiateur]{"entity": "chauffage", "value": "chauffage"} de la [chambre](piece) à [45](temperature) degrés
+    - [régl](action_maison)es la température à [25](temperature) degrés
+    - [met](action_maison)s la température à [18](temperature)
+- synonym: lumière
+  examples: |
+    - ampoule
+    - lumiere
+    - lampe
+- synonym: chauffage
+  examples: |
+    - radiateur
+    - chauffage
+- regex: action_maison
+  examples: |
+    - ^allum
+    - ^etein
+    - ^met
+    - ^régl

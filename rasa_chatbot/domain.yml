@@ -1,0 +1,53 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- action_maison
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+entities:
+- action_maison
+- chauffage
+- lumiere
+- piece
+- temperature
+slots:
+  action_maison:
+    type: text
+    influence_conversation: false
+  chauffage:
+    type: text
+    influence_conversation: false
+  lumiere:
+    type: text
+    influence_conversation: false
+  piece:
+    type: text
+    influence_conversation: false
+  temperature:
+    type: float
+    influence_conversation: false
+    max_value: 30.0
+    min_value: 0.0
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+actions:
+- utter_greet
