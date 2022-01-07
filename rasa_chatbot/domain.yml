@@ -12,6 +12,7 @@ intents:
 - mood_unhappy
 - bot_challenge
 - envoyer_message
+- action_course
 entities:
 - action_maison
 - chauffage
@@ -20,7 +21,19 @@ entities:
 - temperature
 - envoyer
 - destinataire
+- action_course
+- article
+- quantite
 slots:
+  quantite:
+    type: list
+    influence_conversation: false
+  article:
+    type: list
+    influence_conversation: false
+  action_course:
+    type: text
+    influence_conversation: false
   destinataire:
     type: text
     influence_conversation: false
@@ -62,3 +75,4 @@ actions:
 - utter_greet
 - action_maison
 - action_message
+- action_liste_courses

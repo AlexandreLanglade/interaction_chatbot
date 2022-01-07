@@ -105,6 +105,29 @@ nlu:
     - [écris](envoyer) à [maman](destinataire)
     - [écrire](envoyer) un message à [papa](destinataire)
     - [envoyer](envoyer) un message à [maman](destinataire)
+- intent: action_course
+  examples: |
+    - [ajoutes](action_course) du [lait](article) sur la liste de courses
+    - [supprimes](action_course) le [lait demi-écrémé ](article)de la liste
+    - [effacer](action_course) le [lait entier](article)
+    - [ajouter](action_course) des [bananes](article) en quantité [5](quantite)
+    - [ajout](action_course) de [2](quantite) [pains](article) sur la liste
+    - [écris](action_course) qu'il faut acheter du [pain](article)
+    - [enlève](action_course) les [bananes](article) de la liste de courses
+    - [supprimer](action_course) [1](quantite) [pain](article) de la liste
+    - [ajoutes](action_course) du [lait](article) en quantité [2](quantite)
+    - [supprime](action_course) du [pain](article) en quantité [4](quantite) de la liste de courses
+    - [ajouter](action_course) du [pain](article) en quantité [3](quantite) à ma liste
+    - [efface](action_course) [3](quantite) briques de [lait](article) sur la liste
+    - [dis moi](action_course) la liste de course
+    - [énonce](action_course) la liste de courses
+    - [rappelle moi](action_course) les courses
+    - [quelle est](action_course) la liste de courses
+    - [ajoutes](action_course) du [lait](article) en quantité [2](quantite) et du [pain](article) en quantité [1](quantite)
+    - [ajouter](action_course) du [lait](article) et des [bananes](article) en quantité [2](quantite) et [4](quantite)
+    - [supprimer](action_course) les [bananes](article) en quantité [2](quantite) et le [pain](article) en quantité [3](quantite) de la liste
+    - [ajoutes](action_course) du [lait](article) en quantité [2](quantite), du [pain](article) en quantité [4](quantite) et des [bananes](article) en quantité [3](quantite)
+    - [supprimer](action_course) du [lait](article), de [pain](article) et des [bananes](article) en quantité [2](quantite),[3](quantite) et [5](quantite) de la liste
 - regex: envoyer
   examples: |
     - ^envo

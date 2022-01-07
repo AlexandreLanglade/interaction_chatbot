@@ -21,3 +21,8 @@ rules:
   steps:
   - intent: envoyer_message
   - action: action_message
+
+- rule : Action pour la liste de courses
+  steps:
+  - intent: action_course
+  - action: action_liste_courses

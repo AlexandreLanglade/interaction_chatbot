@@ -49,3 +49,64 @@ stories:
   - slot_was_set:
     - temperature: "25"
   - action: action_maison
+- story: action course 2
+  steps:
+  - user: |
+      ajouter du lait et 3 bananes
+    intent: action_course
+    entities:
+    - action_course: "ajouter"
+    - article: ["lait", "bananes"]
+    - quantite: ["1","3"]
+  - slot_was_set:
+    - action_course: "ajouter"
+  - slot_was_set:
+    - article: ["lait", "bananes"]
+  - slot_was_set:
+    - quantite: ["1","3"]
+- story: action course 3
+  steps:
+  - user: |
+      ajouter du pain
+    intent: action_course
+    entities:
+    - action_course: "ajouter"
+    - article: ["pain"]
+    - quantite: ["1"]
+  - slot_was_set:
+    - action_course: "ajouter"
+  - slot_was_set:
+    - article: ["pain"]
+  - slot_was_set:
+    - quantite: ["1"]
+- story: action course 5
+  steps:
+  - user: |
+      ajouter 3 bananes et du lait
+    intent: action_course
+    entities:
+    - action_course: "ajouter"
+    - article: ["bananes", "lait"]
+    - quantite: ["3","1"]
+  - slot_was_set:
+    - action_course: "ajouter"
+  - slot_was_set:
+    - article: ["bananes", "lait"]
+  - slot_was_set:
+    - quantite: ["3","1"]  
+- story: action course 4
+  steps:
+  - user: |
+      ajoutes du pain en quantité 1, des bananes et le lait
+    intent: action_course
+    entities:
+    - action_course: "ajoutes"
+    - article: ["pain", "bananes", "lait"]
+    - quantite: ["1","1","1"] 
+  - slot_was_set:
+    - action_course: "ajoutes"
+  - slot_was_set:
+    - article: ["pain", "bananes", "lait"]
+  - slot_was_set:
+    - quantite: ["1","1","1"]    
+   
