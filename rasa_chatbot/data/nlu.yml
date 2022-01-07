@@ -111,6 +111,7 @@ nlu:
 - regex: action_maison
   examples: |
     - ^allum
-    - ^etein
+    - ^étein
     - ^met
     - ^régl
+    - ^règl
