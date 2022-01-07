@@ -11,13 +11,22 @@ intents:
 - mood_great
 - mood_unhappy
 - bot_challenge
+- envoyer_message
 entities:
 - action_maison
 - chauffage
 - lumiere
 - piece
 - temperature
+- envoyer
+- destinataire
 slots:
+  destinataire:
+    type: text
+    influence_conversation: false
+  envoyer:
+    type: text
+    influence_conversation: false
   action_maison:
     type: text
     influence_conversation: false
@@ -52,3 +61,4 @@ responses:
 actions:
 - utter_greet
 - action_maison
+- action_message

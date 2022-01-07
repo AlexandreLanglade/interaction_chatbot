@@ -16,3 +16,8 @@ rules:
   steps:
   - intent: action_maison
   - action: action_maison
+
+- rule: Action pour les messages
+  steps:
+  - intent: envoyer_message
+  - action: action_message

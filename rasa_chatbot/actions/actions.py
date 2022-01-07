@@ -5,7 +5,7 @@ from ivy.ivy import IvyServer
 from rasa_sdk import Action, Tracker
 from rasa_sdk.events import AllSlotsReset
 from rasa_sdk.executor import CollectingDispatcher
-from stt_tts import Tts
+from .stt_tts import Stt, Tts
 
 
 class ActionIvy(IvyServer):
@@ -18,17 +18,13 @@ class Maison(Action):
     def name(self) -> Text:
         return "action_maison"
 
-    def run(self):
-        """
-        , dispatcher: CollectingDispatcher,
+    def run(self, dispatcher: CollectingDispatcher,
                 tracker: Tracker,
                 domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        """
         connexion = ActionIvy()
         time.sleep(1)
         tts = Tts()
-        #slots = tracker.current_slot_values()
-        slots = {"action_maison":"éteint","piece":"salon","chauffage":None,"lumiere":"lumière","temperature":None}
+        slots = tracker.current_slot_values()
         if "allum" in slots["action_maison"]:
             if slots["lumiere"] == "lumière":
                 if slots["piece"] == "salon":
@@ -63,7 +59,7 @@ class Maison(Action):
                 tts.say("J'ai éteint le chauffage.")
             else:
                 tts.say("Je n'ai pas compris.")
-        elif "met" in slots["action_maison"] or "règ" in slots["action_maison"]:
+        elif "met" in slots["action_maison"] or "règ" in slots["action_maison"] or "rég" in slots["action_maison"]:
             try:
                 temperature = int(float(slots["temperature"]))
                 connexion.send_msg("MAISON device=temperature action=" + str(temperature))
@@ -96,4 +92,29 @@ class Message(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
+        connexion = ActionIvy()
+        time.sleep(1)
+        tts = Tts()
+        stt = Stt()
+        slots = tracker.current_slot_values()
+
+        if slots["envoyer"] != None:
+            if "papa" in slots["destinataire"]:
+                message = stt.enregistrer_message()
+                if message != "Error":
+                    tts.say("J'ai envoyé "+ message + " à papa.")
+                    # TODO WHATSAPP
+                    connexion.send_msg("MAISON device=papa action=message")
+            elif "maman" in slots["destinataire"]:
+                message = stt.enregistrer_message()
+                if message != "Error":
+                    tts.say("J'ai envoyé "+ message + " à maman.")
+                    # TODO WHATSAPP
+                    connexion.send_msg("MAISON device=maman action=message")
+            else:
+                tts.say("Je n'ai pas compris.")
+        else:
+            tts.say("Je n'ai pas compris.")
+
+        connexion.stop()
         return [AllSlotsReset()]

@@ -99,6 +99,17 @@ nlu:
     - [allum](action_maison)[allumes](action_maison) le [radiateur]{"entity": "chauffage", "value": "chauffage"} de la [chambre](piece) à [45](temperature) degrés
     - [régl](action_maison)es la température à [25](temperature) degrés
     - [met](action_maison)s la température à [18](temperature)
+- intent: envoyer_message
+  examples: |
+    - [envoie](envoyer) un message à [papa](destinataire) 
+    - [écris](envoyer) à [maman](destinataire)
+    - [écrire](envoyer) un message à [papa](destinataire)
+    - [envoyer](envoyer) un message à [maman](destinataire)
+- regex: envoyer
+  examples: |
+    - ^envo
+    - ^écr
+    - ^ecr
 - synonym: lumière
   examples: |
     - ampoule
@@ -111,7 +122,6 @@ nlu:
 - regex: action_maison
   examples: |
     - ^allum
-    - ^étein
+    - ^etein
     - ^met
     - ^régl
-    - ^règl
