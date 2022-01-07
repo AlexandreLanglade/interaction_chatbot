@@ -12,7 +12,7 @@ dans le domain
 """
 
 from bdd import database
-from stt_tts import tts,stt
+from stt_tts import Tts,stt
 
 from course import *
 
@@ -79,7 +79,7 @@ class actions:
 ################### RETOUR ORAL POUR UTILISATEUR ###################
 
     def dire_message_oral(self,texte):
-        text_to_speech = tts()
+        text_to_speech = Tts()
         text_to_speech.python_tts(texte)
 
 ################### ACTION GESTION DES DEVICES ######################

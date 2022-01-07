@@ -11,3 +11,8 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Action sur les device de la maison
+  steps:
+  - intent: action_maison
+  - action: action_maison

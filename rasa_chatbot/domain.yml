@@ -51,3 +51,4 @@ responses:
   - text: I am a bot, powered by Rasa.
 actions:
 - utter_greet
+- action_maison

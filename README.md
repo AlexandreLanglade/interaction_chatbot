@@ -1,7 +1,7 @@
 # BE Intégration - Mineure Interaction Avancée
 
 ## Requirements :
-- Python 3.6.0
+- Python 3.6.2
 - RASA
 ```
 pip3 install rasa==2.8

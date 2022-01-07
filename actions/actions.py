@@ -18,12 +18,9 @@ class Maison(Action):
     def name(self) -> Text:
         return "action_maison"
 
-    def run(self):
-        """
-        , dispatcher: CollectingDispatcher,
+    def run(self, dispatcher: CollectingDispatcher,
                 tracker: Tracker,
                 domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        """
         connexion = ActionIvy()
         time.sleep(1)
         tts = Tts()
