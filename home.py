@@ -17,6 +17,10 @@ class Maison(IvyServer):
         self.tel_papa = 0
         self.tel_maman = 0
 
+    def print_message_erreur(self, device, action):
+        print("-------- OUPS --------")
+        print("Le message est incorrect et n'a pas été traité : ", device, action)
+
     def update(self, agent_name, device, action):
         """
         Messages possibles:
@@ -35,37 +39,34 @@ class Maison(IvyServer):
         if device == "salon":
             if action == "on":
                 self.lampe_salon = True
-                return
             elif action == "off":
                 self.lampe_salon = False
-                return
+            else:
+                self.print_message_erreur(device,action)
         elif device == "chambre":
             if action == "on":
                 self.lampe_chambre = True
-                return
             elif action == "off":
                 self.lampe_chambre = False
-                return
+            else:
+                self.print_message_erreur(device,action)
         elif device == "radiateur":
             if action == "on":
                 self.radiateur = True
-                return
             elif action == "off":
                 self.radiateur = False
-                return
+            else:
+                self.print_message_erreur(device,action)
         elif device == "temperature":
             try:
                 nouvelle_temperature = int(action)
                 self.temperature = nouvelle_temperature
             except:
                 print("--> Erreur lors du cast en int de la température.")
-            return
         elif device == "maman" and action == "message":
             self.tel_maman += 1
-            return
         elif device == "papa" and action == "message":
             self.tel_papa += 1
-            return
         elif device == "liste":
             self.liste_courses = []
             if action == "":
@@ -75,9 +76,8 @@ class Maison(IvyServer):
                 if len(self.liste_courses) == 6:
                     break
                 self.liste_courses.append(item)
-            return
-        print("-------- OUPS --------")
-        print("Le message est incorrect et n'a pas été traité : ", device, action)
+        else:
+            self.print_message_erreur(device,action)
 
 
 if __name__ == "__main__":
