@@ -1,6 +1,11 @@
 # BE Intégration - Mineure Interaction Avancée
 
+## Comment lancer l'application :
+TODO
+
 ## Requirements :
+
+- L'app ne fonctionne pas offline, vous devez être connecté à Internet
 - Python 3.6.2
 - RASA
 ```

@@ -64,6 +64,7 @@ stories:
     - article: ["lait", "bananes"]
   - slot_was_set:
     - quantite: ["1","3"]
+  - action: action_liste_courses
 - story: action course 3
   steps:
   - user: |
@@ -79,6 +80,7 @@ stories:
     - article: ["pain"]
   - slot_was_set:
     - quantite: ["1"]
+  - action: action_liste_courses
 - story: action course 5
   steps:
   - user: |
@@ -94,6 +96,7 @@ stories:
     - article: ["bananes", "lait"]
   - slot_was_set:
     - quantite: ["3","1"]  
+  - action: action_liste_courses
 - story: action course 4
   steps:
   - user: |
@@ -109,4 +112,5 @@ stories:
     - article: ["pain", "bananes", "lait"]
   - slot_was_set:
     - quantite: ["1","1","1"]    
+  - action: action_liste_courses
    

@@ -118,16 +118,22 @@ nlu:
     - [ajoutes](action_course) du [lait](article) en quantité [2](quantite)
     - [supprime](action_course) du [pain](article) en quantité [4](quantite) de la liste de courses
     - [ajouter](action_course) du [pain](article) en quantité [3](quantite) à ma liste
-    - [efface](action_course) [3](quantite) briques de [lait](article) sur la liste
+    - [effaces](action_course) [3](quantite) briques de [lait](article) sur la liste
     - [dis moi](action_course) la liste de course
     - [énonce](action_course) la liste de courses
     - [rappelle moi](action_course) les courses
     - [quelle est](action_course) la liste de courses
     - [ajoutes](action_course) du [lait](article) en quantité [2](quantite) et du [pain](article) en quantité [1](quantite)
     - [ajouter](action_course) du [lait](article) et des [bananes](article) en quantité [2](quantite) et [4](quantite)
-    - [supprimer](action_course) les [bananes](article) en quantité [2](quantite) et le [pain](article) en quantité [3](quantite) de la liste
-    - [ajoutes](action_course) du [lait](article) en quantité [2](quantite), du [pain](article) en quantité [4](quantite) et des [bananes](article) en quantité [3](quantite)
+    - [efface](action_course) les [bananes](article) en quantité [2](quantite) et le [pain](article) en quantité [3](quantite) de la liste
+    - [ajoute](action_course) du [lait](article) en quantité [2](quantite), du [pain](article) en quantité [4](quantite) et des [bananes](article) en quantité [3](quantite)
     - [supprimer](action_course) du [lait](article), de [pain](article) et des [bananes](article) en quantité [2](quantite),[3](quantite) et [5](quantite) de la liste
+    - [écrire](action_course) du [lait](article) sur la liste
+    - [enlever](action_course) le [lait](article)
+    - [retires](action_course) les [bananes](article)
+    - [retirer](action_course) le [lait](article) et les [bananes](article)
+    - [retire](action_course) le [pain](article)
+    - [enlèves](action_course) le [pain](article)
 - regex: envoyer
   examples: |
     - ^envo
@@ -142,6 +148,31 @@ nlu:
   examples: |
     - radiateur
     - chauffage
+- synonym: ajouter
+  examples: |
+    - ajoutes
+    - ajoute
+    - ajout
+    - écris
+    - écrire
+- synonym: supprimer
+  examples: |
+    - supprimes
+    - effacer
+    - enlève
+    - supprime
+    - enlever
+    - retires
+    - retire
+    - retirer
+    - enlèves
+    - efface
+- synonym: énoncer
+  examples: |
+    - rappelle moi
+    - quelle est
+    - dis moi
+    - énonce
 - regex: action_maison
   examples: |
     - ^allum
