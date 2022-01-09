@@ -1,4 +1,7 @@
+import json
+
 import pyttsx3
+import requests
 import speech_recognition as sr
 
 
@@ -27,8 +30,8 @@ class Stt:
                             parole2 = recognizer.recognize_google(
                                 audio2, language="fr-FR"
                             )
-                            # TODO ENVOI DE LA PAROLE A RASA ?
-                            return parole2
+                            print(parole2)
+                            self.envoyer_rasa(parole2)
                         except:
                             text_to_speech.say(
                                 "Je n'ai pas compris, relancez Ok Google"
@@ -49,3 +52,15 @@ class Stt:
             except:
                 text_to_speech.say("Je n'ai pas compris le message à envoyer.")
                 return "Error"
+
+    def envoyer_rasa(self,parole):
+         #ENVOI DE LA PAROLE A RASA                                                                    
+        url = 'http://localhost:5005/webhooks/myio/webhook'
+        payload = {'sender': 'test_user','message': parole,'metadata': {}}
+        headers = {'Content-Type': 'application/json'}
+        requests.post(url, data=json.dumps(payload), headers=headers)
+
+if __name__ == "__main__":
+    #Entrée vocale de l'utilisateur
+    speech_to_text = Stt()
+    parole = speech_to_text.google_stt()
