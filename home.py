@@ -42,21 +42,21 @@ class Maison(IvyServer):
             elif action == "off":
                 self.lampe_salon = False
             else:
-                self.print_message_erreur(device,action)
+                self.print_message_erreur(device, action)
         elif device == "chambre":
             if action == "on":
                 self.lampe_chambre = True
             elif action == "off":
                 self.lampe_chambre = False
             else:
-                self.print_message_erreur(device,action)
+                self.print_message_erreur(device, action)
         elif device == "radiateur":
             if action == "on":
                 self.radiateur = True
             elif action == "off":
                 self.radiateur = False
             else:
-                self.print_message_erreur(device,action)
+                self.print_message_erreur(device, action)
         elif device == "temperature":
             try:
                 nouvelle_temperature = int(action)
@@ -77,7 +77,7 @@ class Maison(IvyServer):
                     break
                 self.liste_courses.append(item)
         else:
-            self.print_message_erreur(device,action)
+            self.print_message_erreur(device, action)
 
 
 if __name__ == "__main__":

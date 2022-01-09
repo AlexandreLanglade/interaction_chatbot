@@ -33,7 +33,7 @@ class Maison(Action):
         if slots["action_maison"] == None:
             tts.say("Je n'ai pas compris.")
         elif "allum" in slots["action_maison"]:
-            if "lumière" in slots["lumiere"]:
+            if slots["lumiere"] == "lumière" or slots["lumiere"] == "lumières":
                 if slots["piece"] == "salon":
                     connexion.send_msg("MAISON device=salon action=on")
                     tts.say("J'ai allumé la lumière du salon.")
@@ -50,7 +50,7 @@ class Maison(Action):
             else:
                 tts.say("Je n'ai pas compris.")
         elif "étein" in slots["action_maison"]:
-            if "lumière" in slots["lumiere"]:
+            if slots["lumiere"] == "lumière" or slots["lumiere"] == "lumières":
                 if slots["piece"] == "salon":
                     connexion.send_msg("MAISON device=salon action=off")
                     tts.say("J'ai éteint la lumière du salon.")
