@@ -7,9 +7,13 @@ et familiaux (laisser un message aux membres de la famille : aller chercher du p
 
 Le chatbot a été fait avec [RASA](https://rasa.com/).
 
-Pour plus de détails, consultez le rapport présent dans le répertoire.
+Pour plus de détails sur la conception de la solution,
+consultez le rapport présent dans le répertoire. (cf Rapport.pdf)
 
+-------------------------------
 ## Comment utiliser l'application :
+-------------------------------
+
 Dans un premier terminal, démarrer l'écoute de l'utilisateur:
 ```
 cd PATH\interaction_chatbot\rasa_chatbot\actions\
@@ -32,9 +36,11 @@ python home.py
 ```
 
 Commencer ensuite l'intéraction en disant "ok google".
-Les scénarios d'intéractions possibles sont décrit dans le rapport.
+Les scénarios d'intéractions possibles sont décrits dans le rapport.
 
+-------------------------------
 ## Requirements :
+-------------------------------
 
 - L'app ne fonctionne pas offline, vous devez être connecté à Internet
 - Python 3.6.2
