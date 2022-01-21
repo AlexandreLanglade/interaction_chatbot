@@ -1,3 +1,9 @@
+"""
+Chaque customs actions se voit call par rasa via sa
+fonction run().
+Les actions gèrent la communication avec l'interface
+et les retours vocaux à l'utilisateur.
+"""
 import time
 from typing import Any, Dict, List, Text
 

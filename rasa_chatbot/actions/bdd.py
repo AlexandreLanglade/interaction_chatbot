@@ -1,3 +1,7 @@
+"""
+Module des interactions avec la base de données SQLlite
+"""
+
 import sqlite3
 
 

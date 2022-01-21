@@ -1,3 +1,10 @@
+"""
+Module des fonctions utiles pour les entrées et sorties de paroles.
+
+C'est également le script qui écoute l'utilisateur pour déclencher
+l'interaction avec un "ok Google" et faire la redirection de la parole
+utilisateur vers l'input de rasa.
+"""
 import json
 
 import pyttsx3
@@ -6,6 +13,10 @@ import speech_recognition as sr
 
 
 class Tts:
+    """
+    Cette classe permet le text-to-speech.
+    """
+
     def say(self, texte):
         engine = pyttsx3.init()
         engine.setProperty("rate", 150)
@@ -14,6 +25,10 @@ class Tts:
 
 
 class Stt:
+    """
+    Cette classe permet le speech-to-text.
+    """
+
     def google_stt(self):
         text_to_speech = Tts()
         micro = sr.Microphone()
@@ -53,14 +68,15 @@ class Stt:
                 text_to_speech.say("Je n'ai pas compris le message à envoyer.")
                 return "Error"
 
-    def envoyer_rasa(self,parole):
-         #ENVOI DE LA PAROLE A RASA                                                                    
-        url = 'http://localhost:5005/webhooks/myio/webhook'
-        payload = {'sender': 'test_user','message': parole,'metadata': {}}
-        headers = {'Content-Type': 'application/json'}
+    def envoyer_rasa(self, parole):
+        # ENVOI DE LA PAROLE A RASA
+        url = "http://localhost:5005/webhooks/myio/webhook"
+        payload = {"sender": "test_user", "message": parole, "metadata": {}}
+        headers = {"Content-Type": "application/json"}
         requests.post(url, data=json.dumps(payload), headers=headers)
 
+
 if __name__ == "__main__":
-    #Entrée vocale de l'utilisateur
+    # Entrée vocale de l'utilisateur
     speech_to_text = Stt()
     parole = speech_to_text.google_stt()

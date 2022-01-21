@@ -1,3 +1,17 @@
+"""
+Script de l'interface de simulation de la maison.
+(Le chatbot peut tout à fait être exécuté sans l'interface,
+le script est indépendant, c'est un plus pour la visualisation)
+
+La classe Maison est un serveur Ivy qui met à jour les
+caractéristiques de la maison en fonction de ce qu'elle
+lit sur le canal Ivy au bind MAISON.
+
+En parallèle, une fenêtre pygame se met à jour à 30fps
+à partir des informations sur l'état actuel de la maison
+présentent dans l'instance de Maison.
+"""
+
 import sys
 
 import pygame
@@ -5,6 +19,15 @@ from ivy.ivy import IvyServer
 
 
 class Maison(IvyServer):
+    """
+    Serveur Ivy connecté à 127.255.255.255:2010
+
+    Bind aux messages regex : ^MAISON device=(.*) action=(.*)
+
+    La liste des messages pris en charge est dans la
+    documentation de la fonction callback update().
+    """
+
     def __init__(self):
         IvyServer.__init__(self, "Maison")
         self.start("127.255.255.255:2010")
